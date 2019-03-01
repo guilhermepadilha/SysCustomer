@@ -1,29 +1,33 @@
 ﻿
 
 using Microsoft.AspNetCore.Mvc;
+using SysCustomer.Infra.Data.Repositories;
+using System.Net;
 using System.Net.Http;
 
 namespace SysCustomer.WebApi.Controllers
 {
-    [Route("api/syscustomer")]
-    public class CustomerController : Controller
+  [Route("api/syscustomer")]
+  public class CustomerController : ControllerBase
+  {
+
+    [HttpGet]
+    [Route("customer/{customerId:int}")]
+    public IActionResult GetCustomer(int customerId)
     {
-        [HttpGet]
-        [Route("customer/{customerId:int}")]
-        public HttpResponseMessage GetCustomer (int customerId)
-        {
-            try
-            {
-                var _gamePointRepository = new CustomerRepository();
+      try
+      {
+        var _customerRepository = new CustomerRepository();
 
 
-                //return Request.CreateResponse(HttpStatusCode.OK, _gamePointRepository.GetAllPlayers(gameId));
+        return Ok(_customerRepository.GetById(customerId));
+          
 
-            }
-            catch (System.Exception ex)
-            {
-                //return Request.CreateResponse(HttpStatusCode.BadRequest, ex.Message);
-            }
-        }
+      }
+      catch (System.Exception ex)
+      {
+        return BadRequest(ex);
+      }
     }
+  }
 }
