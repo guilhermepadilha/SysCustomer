@@ -1,33 +1,32 @@
 ﻿
 
 using Microsoft.AspNetCore.Mvc;
-using SysCustomer.Infra.Data.Repositories;
-using System.Net;
-using System.Net.Http;
+using SysCustomer.Application.Interface;
 
 namespace SysCustomer.WebApi.Controllers
 {
-  [Route("api/syscustomer")]
-  public class CustomerController : ControllerBase
-  {
-
-    [HttpGet]
-    [Route("customer/{customerId:int}")]
-    public IActionResult GetCustomer(int customerId)
+    [Route("api/syscustomer")]
+    public class CustomerController : ControllerBase
     {
-      try
-      {
-        var _customerRepository = new CustomerRepository();
+        private readonly ICustomerAppService _customerAppService;
 
+        public CustomerController(ICustomerAppService customerAppService)
+        {
+            _customerAppService = customerAppService;
+        }
 
-        return Ok(_customerRepository.GetById(customerId));
-          
-
-      }
-      catch (System.Exception ex)
-      {
-        return BadRequest(ex);
-      }
+        [HttpGet]
+        [Route("customer/{customerId:int}")]
+        public IActionResult GetCustomer(int customerId)
+        {
+            try
+            {
+                return Ok(_customerAppService.GetById(customerId));
+            }
+            catch (System.Exception ex)
+            {
+                return BadRequest(ex);
+            }
+        }
     }
-  }
 }
