@@ -12,7 +12,7 @@ namespace SysCustomer.Infra.Data.Repositories
     {
 
         protected SysCustomerContext Db = new SysCustomerContext();
-
+        
         public void Add(TEntity obj)
         {
             Db.Set<TEntity>().Add(obj);
@@ -32,7 +32,7 @@ namespace SysCustomer.Infra.Data.Repositories
         public void Update(TEntity obj)
         {
             Db.Entry(obj).State = EntityState.Modified;
-            Db.SaveChanges();
+            Db.SaveChanges();            
         }
 
         public void Remove(TEntity obj)
