@@ -21,8 +21,7 @@ namespace SysCustomer.WebApi.Controllers
         {
             try
             {
-                //    return Ok(_customerAppService.GetById(customerId));
-                return Ok("teste");
+                return Ok(_customerAppService.GetById(customerId));                
             }
             catch (System.Exception ex)
             {
