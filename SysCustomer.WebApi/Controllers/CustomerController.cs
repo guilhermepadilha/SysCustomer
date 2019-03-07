@@ -9,19 +9,20 @@ namespace SysCustomer.WebApi.Controllers
     public class CustomerController : ControllerBase
     {
         private readonly ICustomerAppService _customerAppService;
-
+        
         public CustomerController(ICustomerAppService customerAppService)
         {
             _customerAppService = customerAppService;
         }
 
         [HttpGet]
-        [Route("customer/{customerId:int}")]
+        [Route("{customerId:int}")]
         public IActionResult GetCustomer(int customerId)
         {
             try
             {
-                return Ok(_customerAppService.GetById(customerId));
+                //    return Ok(_customerAppService.GetById(customerId));
+                return Ok("teste");
             }
             catch (System.Exception ex)
             {
