@@ -8,7 +8,9 @@ import { CustomerDetailService } from 'src/app/shared/customer-detail.service';
 })
 export class CustomerDetailComponent implements OnInit {
 
-  constructor(private service: CustomerDetailService) { }
+  constructor(private service: CustomerDetailService) {
+    
+   }
 
   ngOnInit() {
   }
