@@ -1,0 +1,17 @@
+● src
++---● app
+|   +--● customer-details
+|   |  |--customer-details.component.ts|.html|.css
+|   |  +--● customer-detail
+|   |  |  |--customer-detail.component.ts|.html|.css
+|   |  |
+|   |  +--● customer-detail-list
+|   |  |  |--customer-detail-list.component.ts|.html|.css
+|   |  |
+|   |  +--● shared
+|   |     |--customer-detail.service.ts
+|   |     |--customer-detail.model.ts
+|   |
+|   |--app.module.ts
+|
+|--index.html (cdn path for bootstrap & fa icons)

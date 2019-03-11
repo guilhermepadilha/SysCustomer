@@ -5,7 +5,7 @@ using SysCustomer.Application.Interface;
 
 namespace SysCustomer.WebApi.Controllers
 {
-    [Route("api/syscustomer")]
+    [Route("api/customer")]
     public class CustomerController : ControllerBase
     {
         private readonly ICustomerAppService _customerAppService;
