@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import {FormsModule} from '@angular/forms';
 
@@ -8,6 +9,7 @@ import { CustomerDetailComponent } from './customer-details/customer-detail/cust
 import { CustomerDetailListComponent } from './customer-details/customer-detail-list/customer-detail-list.component';
 import { CustomerDetailService } from './shared/customer-detail.service';
 import { HttpClientModule } from '@angular/common/http';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -20,8 +22,8 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    // BrowserAnimationModule,
-    // ToastrModule.forRoot()
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
   ],
   providers: [CustomerDetailService],
   bootstrap: [AppComponent]

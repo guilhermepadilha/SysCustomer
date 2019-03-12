@@ -6,8 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styles: []
 })
 export class CustomerDetailsComponent implements OnInit {
-
-  constructor() { }
+  debugger;
+  constructor() {
+    debugger;
+   }
 
   ngOnInit() {
   }

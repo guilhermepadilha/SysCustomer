@@ -9,7 +9,7 @@ import { ToastrService } from 'ngx-toastr';
   styles: []
 })
 export class CustomerDetailListComponent implements OnInit {
-
+  debugger;
   constructor(private service: CustomerDetailService,
     private toastr: ToastrService) { }
 

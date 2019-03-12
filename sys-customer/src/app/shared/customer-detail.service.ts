@@ -7,19 +7,19 @@ import { HttpClient } from "@angular/common/http";
 })
 export class CustomerDetailService {
   formData: CustomerDetail;
-  readonly rootURL = 'http://localhost:59035/api';
+  readonly rootURL = 'http://localhost:54717/api';
   list : CustomerDetail[];
 
   constructor(private http: HttpClient) { }
 
   postCustomerDetail() {
-    return this.http.post(this.rootURL + '/CustomerDetail', this.formData);
+    return this.http.post(this.rootURL + '/Customer', this.formData);
   }
   putCustomerDetail() {
-    return this.http.put(this.rootURL + '/CustomerDetail/'+ this.formData.Id, this.formData);
+    return this.http.put(this.rootURL + '/Customer/'+ this.formData.Id, this.formData);
   }
   deleteCustomerDetail(id) {
-    return this.http.delete(this.rootURL + '/CustomerDetail/'+ id);
+    return this.http.delete(this.rootURL + '/Customer/'+ id);
   }
 
   refreshList(){
