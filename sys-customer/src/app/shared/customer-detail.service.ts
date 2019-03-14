@@ -13,13 +13,13 @@ export class CustomerDetailService {
   constructor(private http: HttpClient) { }
 
   postCustomerDetail() {
-    return this.http.post(this.rootURL + '/Customer', this.formData);
+    return this.http.post(this.rootURL + '/CustomerDetail', this.formData);
   }
   putCustomerDetail() {
-    return this.http.put(this.rootURL + '/Customer/'+ this.formData.Id, this.formData);
+    return this.http.put(this.rootURL + '/CustomerDetail/'+ this.formData.Id, this.formData);
   }
   deleteCustomerDetail(id) {
-    return this.http.delete(this.rootURL + '/Customer/'+ id);
+    return this.http.delete(this.rootURL + '/CustomerDetail/'+ id);
   }
 
   refreshList(){
