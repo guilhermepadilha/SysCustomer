@@ -23,6 +23,7 @@ export class CustomerDetailService {
   }
 
   refreshList(){
+    debugger;
     this.http.get(this.rootURL + '/CustomerDetail')
     .toPromise()
     .then(res => this.list = res as CustomerDetail[]);

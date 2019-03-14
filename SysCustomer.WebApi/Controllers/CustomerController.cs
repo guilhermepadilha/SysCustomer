@@ -2,10 +2,14 @@
 
 using Microsoft.AspNetCore.Mvc;
 using SysCustomer.Application.Interface;
+using SysCustomer.Domain.Entities;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using System.Linq;
 
 namespace SysCustomer.WebApi.Controllers
 {
-    [Route("api/customer")]
+    [Route("api/customerDetail")]
     public class CustomerController : ControllerBase
     {
         private readonly ICustomerAppService _customerAppService;
@@ -30,11 +34,12 @@ namespace SysCustomer.WebApi.Controllers
         }
 
         [HttpGet]
-        public IActionResult GetAllCustomers()
+        public ActionResult<IEnumerable<Customer>> GetAllCustomers()
         {
             try
             {
-                return Ok(_customerAppService.GetAll());
+                var customers = _customerAppService.GetAll().ToList();
+                return customers;
             }
             catch (System.Exception ex)
             {

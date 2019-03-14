@@ -9,7 +9,6 @@ import { ToastrService } from 'ngx-toastr';
   styles: []
 })
 export class CustomerDetailListComponent implements OnInit {
-  debugger;
   constructor(private service: CustomerDetailService,
     private toastr: ToastrService) { }
 
@@ -25,12 +24,10 @@ export class CustomerDetailListComponent implements OnInit {
     if (confirm('Are you sure to delete this record ?')) {
       this.service.deleteCustomerDetail(Id)
         .subscribe(res => {
-          debugger;
           this.service.refreshList();
           this.toastr.warning('Deleted successfully', 'Customer Detail Register');
         },
           err => {
-            debugger;
             console.log(err);
           })
     }

@@ -25,7 +25,7 @@ export class CustomerDetailComponent implements OnInit {
       Id: 0,
       Name: '',
       Phone: '',
-      LastUrchase: null,
+      LastPurchase: '',
       ClassificationId: 0,
       GenderId: 0,
       CityId: 0,
@@ -44,13 +44,11 @@ export class CustomerDetailComponent implements OnInit {
   insertRecord(form: NgForm) {
     this.service.postCustomerDetail().subscribe(
       res => {
-        debugger;
         this.resetForm(form);
         this.toastr.success('Submitted successfully', 'Customer Detail Register');
         this.service.refreshList();
       },
       err => {
-        debugger;
         console.log(err);
       }
     )

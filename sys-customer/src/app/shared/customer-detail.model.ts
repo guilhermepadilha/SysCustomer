@@ -5,7 +5,7 @@ export class CustomerDetail {
     GenderId: number;
     CityId: number;
     RegionId: number;
-    LastUrchase: Date;
+    LastPurchase: string;
     ClassificationId: number;
     UserId: number;
 }
