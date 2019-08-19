@@ -6,10 +6,13 @@ using SysCustomer.Domain.Entities;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Linq;
+using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Authorization;
 
 namespace SysCustomer.WebApi.Controllers
 {
-    [Route("api/customerDetail")]
+    [Authorize]
+    [Route("api/customer")]
     public class CustomerController : ControllerBase
     {
         private readonly ICustomerAppService _customerAppService;

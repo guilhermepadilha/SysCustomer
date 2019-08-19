@@ -1,13 +1,20 @@
 ﻿
 
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using SysCustomer.Domain.Entities;
 
 namespace SysCustomer.Infra.Data.Context
 {
-  public class SysCustomerContext : DbContext
-  {
+  public class SysCustomerContext : IdentityDbContext
+    {
     public DbSet<Customer> Customer { get; set; }
+
+        public SysCustomerContext()
+        {   
+
+        }
+
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
