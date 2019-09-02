@@ -22,7 +22,7 @@ namespace SysCustomer.Domain.Entities
 
         public int ClassificationId { get; set; }
 
-        public int UserId { get; set; }
+        public string UserId { get; set; }
 
     }
 }

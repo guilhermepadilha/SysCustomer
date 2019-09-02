@@ -12,7 +12,7 @@ using Microsoft.IdentityModel.Tokens;
 using SysCustomer.WebApi;
 using SysCustomer.WebApi.Models;
 
-namespace DemoToken.Controllers
+namespace SysCustomer.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -29,6 +29,27 @@ namespace DemoToken.Controllers
             _signInManager = signInManager;
             _userManager = userManager;
             _appSettings = appSettings.Value;
+        }
+
+        [HttpPost("nova-conta")]
+        public async Task<ActionResult> Registrar(RegisterUserViewModel registerUser)
+        {
+            if (!ModelState.IsValid) return BadRequest(ModelState.Values.SelectMany(e => e.Errors));
+
+            var user = new IdentityUser
+            {
+                UserName = registerUser.Email,
+                Email = registerUser.Email,
+                EmailConfirmed = true
+            };
+
+            var result = await _userManager.CreateAsync(user, registerUser.Password);
+
+            if (!result.Succeeded) return BadRequest(result.Errors);
+
+            await _signInManager.SignInAsync(user, false);
+
+            return Ok(await GerarJwt(registerUser.Email));
         }
 
         [HttpPost("entrar")]
